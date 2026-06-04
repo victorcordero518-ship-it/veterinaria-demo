@@ -25,7 +25,7 @@ export function About() {
             Una clínica veterinaria de barrio, con vocación de familia
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            En Clínica Veterinaria Zafra atendemos a perros y gatos con un trato
+            En Clínica Veterinaria atendemos a perros y gatos con un trato
             cercano, profesional y honesto. Conocemos a nuestros pacientes por
             su nombre y acompañamos a sus familias en cada etapa.
           </p>
