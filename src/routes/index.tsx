@@ -13,13 +13,13 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clínica Veterinaria (demo)\n | Veterinario en Madrid" },
+      { title: "Clínica Veterinaria (demo) | Veterinario en Madrid" },
       {
         name: "description",
         content:
-          "Clínica Veterinaria (demo)\n en Madrid. Consultas, vacunación, cirugía, esterilización, peluquería y urgencias para perros y gatos. Llama al 900 000 000.",
+          "Clínica Veterinaria (demo) en Madrid. Consultas, vacunación, cirugía, esterilización, peluquería y urgencias para perros y gatos. Llama al 900 000 000.",
       },
-      { property: "og:title", content: "Clínica Veterinaria (demo)\n — Madrid" },
+      { property: "og:title", content: "Clínica Veterinaria (demo) — Madrid" },
       {
         property: "og:description",
         content: "Cuidamos de la salud de tu mascota. Trato cercano y profesional para perros y gatos.",
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "VeterinaryCare",
-          name: "Clínica Veterinaria (demo)\n",
+          name: "Clínica Veterinaria (demo)",
           telephone: "+34900000000",
           email: "vaterinariademo@gmail.com",
           address: {

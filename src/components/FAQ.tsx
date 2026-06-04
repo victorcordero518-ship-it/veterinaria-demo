@@ -5,11 +5,11 @@ import { Plus } from "lucide-react";
 const faqs = [
   {
     q: "¿Necesito pedir cita previa?",
-    a: "Sí, recomendamos pedir cita previa para garantizar una atención tranquila y personalizada. Puedes llamarnos al 917 269 296 o escribirnos por WhatsApp al 633 489 755.",
+    a: "Sí, recomendamos pedir cita previa para garantizar una atención tranquila y personalizada. Puedes llamarnos al 900 000 000 o escribirnos por WhatsApp al 600 000 000.",
   },
   {
     q: "¿Atendéis urgencias?",
-    a: "Atendemos urgencias de nuestros pacientes habituales en horario de clínica. Llámanos al 917 269 296 y te indicaremos cómo proceder según la situación.",
+    a: "Atendemos urgencias de nuestros pacientes habituales en horario de clínica. Llámanos al 900 000 000 y te indicaremos cómo proceder según la situación.",
   },
   {
     q: "¿Qué animales atendéis?",
