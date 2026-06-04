@@ -23,10 +23,17 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Verify build output
+        run: |
+          ls -la dist/server
+          test -f dist/server/index.js
+          test -f dist/server/wrangler.json
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: dist/server
-          command: deploy --config wrangler.json
+          wranglerVersion: "4"
+          command: deploy
