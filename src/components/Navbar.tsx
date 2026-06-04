@@ -54,7 +54,7 @@ export function Navbar() {
           <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
             <PawPrint className="h-5 w-5" />
           </span>
-          <span>Clínica Veterinaria Zafra</span>
+          <span>Clínica Veterinaria (demo)\n</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-7 text-sm">
@@ -79,7 +79,7 @@ export function Navbar() {
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
           <a
-            href="tel:917269296"
+            href="tel:900000000"
             className="hidden md:inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity shadow-soft"
           >
             Llamar ahora
@@ -109,7 +109,7 @@ export function Navbar() {
               </li>
             ))}
             <a
-              href="tel:917269296"
+              href="tel:900000000"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground"
             >

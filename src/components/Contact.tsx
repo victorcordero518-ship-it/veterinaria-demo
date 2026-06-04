@@ -37,10 +37,10 @@ export function Contact() {
             className="lg:col-span-2 space-y-4"
           >
             {[
-              { icon: Phone, label: "Teléfono", value: "917 269 296", href: "tel:917269296" },
-              { icon: MessageCircle, label: "WhatsApp", value: "633 489 755", href: "https://wa.me/34633489755?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita" },
-              { icon: MapPin, label: "Dirección", value: "P.º del Marqués de Zafra, 34, 28028 Madrid" },
-              { icon: Mail, label: "Email", value: "clinicaveterinariazafra@gmail.com", href: "mailto:clinicaveterinariazafra@gmail.com" },
+              { icon: Phone, label: "Teléfono", value: "900 000 000", href: "tel:900000000" },
+              { icon: MessageCircle, label: "WhatsApp", value: "600 000 000", href: "https://wa.me/34600000000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita" },
+              { icon: MapPin, label: "Dirección", value: "Ubicacion" },
+              { icon: Mail, label: "Email", value: "vaterinariademo@gmail.com", href: "mailto:vaterinariademo@gmail.com" },
               { icon: Clock, label: "Horario:", value: "Lun – Vie: 10:00–14:00 · 17:00–20:30\nSáb: 10:00–14:00\nDom: Cerrado" },
             ].map((c) => (
               <a
