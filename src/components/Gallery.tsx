@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram } from "lucide-react";
+
 import galleryPuppy from "@/assets/gallery-puppy.jpg";
 
 const images = [
@@ -26,14 +26,6 @@ export function Gallery() {
               Momentos de nuestra clínica
             </h2>
           </div>
-          <a
-            href="https://www.instagram.com/clinicavetzafra/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-          >
-            <Instagram className="h-4 w-4" /> @clinicavetzafra
-          </a>
         </div>
 
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
