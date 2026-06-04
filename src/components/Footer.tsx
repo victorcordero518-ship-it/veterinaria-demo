@@ -9,7 +9,7 @@ export function Footer() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
               <PawPrint className="h-5 w-5" />
             </span>
-            Clínica Veterinaria (demo)\n
+            Clínica Veterinaria (demo)
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm">
             Clínica veterinaria de barrio en Madrid (Salamanca). Cuidamos a perros y gatos
@@ -57,7 +57,7 @@ export function Footer() {
 
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Clínica Veterinaria (demo)\n. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Clínica Veterinaria (demo). Todos los derechos reservados.</p>
           <div className="flex gap-5">
             <a href="#" className="hover:text-primary">Aviso legal</a>
             <a href="#" className="hover:text-primary">Privacidad</a>
