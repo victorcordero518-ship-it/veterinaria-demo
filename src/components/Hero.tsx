@@ -26,20 +26,20 @@ export function Hero() {
             <span className="text-primary italic">barrio de Salamanca</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl">
-            Clínica Veterinaria Zafra — somos una clínica de confianza en Madrid,
+            Clínica Veterinaria — somos una clínica de confianza en Madrid,
             especializada en perros y gatos, con trato cercano y personalizado para cada
             familia.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
             <a
-              href="tel:917269296"
+              href="tel:900000000"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground shadow-soft hover:opacity-90 transition"
             >
               <PhoneCall className="h-5 w-5" /> Llamar ahora
             </a>
             <a
-              href="https://wa.me/34633489755?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita"
+              href="https://wa.me/34600000000?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-whatsapp px-6 py-4 text-base font-semibold text-white shadow-soft hover:opacity-90 transition"
@@ -51,7 +51,7 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-primary" />
-              P.º del Marqués de Zafra, 34 · Madrid
+              Ubicacion
             </div>
             <div className="hidden sm:flex items-center gap-1">
               {[...Array(4)].map((_, i) => (

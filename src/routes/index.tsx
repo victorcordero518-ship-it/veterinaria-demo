@@ -13,16 +13,16 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clínica Veterinaria Zafra | Veterinario en el barrio de Salamanca, Madrid" },
+      { title: "Clínica Veterinaria (demo)\n | Veterinario en Madrid" },
       {
         name: "description",
         content:
-          "Clínica Veterinaria Zafra en Madrid (barrio de Salamanca). Consultas, vacunación, cirugía, esterilización, peluquería y urgencias para perros y gatos. Llama al 917 269 296.",
+          "Clínica Veterinaria (demo)\n en Madrid. Consultas, vacunación, cirugía, esterilización, peluquería y urgencias para perros y gatos. Llama al 900 000 000.",
       },
-      { property: "og:title", content: "Clínica Veterinaria Zafra — Madrid" },
+      { property: "og:title", content: "Clínica Veterinaria (demo)\n — Madrid" },
       {
         property: "og:description",
-        content: "Cuidamos de la salud de tu mascota en el barrio de Salamanca. Trato cercano y profesional para perros y gatos.",
+        content: "Cuidamos de la salud de tu mascota. Trato cercano y profesional para perros y gatos.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -42,14 +42,14 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "VeterinaryCare",
-          name: "Clínica Veterinaria Zafra",
-          telephone: "+34917269296",
-          email: "clinicaveterinariazafra@gmail.com",
+          name: "Clínica Veterinaria (demo)\n",
+          telephone: "+34900000000",
+          email: "vaterinariademo@gmail.com",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "P.º del Marqués de Zafra, 34",
+            streetAddress: "Ubicacion",
             addressLocality: "Madrid",
-            postalCode: "28028",
+            postalCode: "28000",
             addressCountry: "ES",
           },
         }),

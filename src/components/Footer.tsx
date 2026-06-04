@@ -9,7 +9,7 @@ export function Footer() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
               <PawPrint className="h-5 w-5" />
             </span>
-            Clínica Veterinaria Zafra
+            Clínica Veterinaria (demo)\n
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-sm">
             Clínica veterinaria de barrio en Madrid (Salamanca). Cuidamos a perros y gatos
@@ -19,7 +19,7 @@ export function Footer() {
             {[
               { Icon: Instagram, href: "https://www.instagram.com/clinicavetzafra/" },
               { Icon: Facebook, href: "https://www.facebook.com/people/Cl%C3%ADnica-Veterinaria-ZAFRA/" },
-              { Icon: Mail, href: "mailto:clinicaveterinariazafra@gmail.com" },
+              { Icon: Mail, href: "mailto:vaterinariademo@gmail.com" },
             ].map(({ Icon, href }, i) => (
               <a
                 key={i}
@@ -48,17 +48,16 @@ export function Footer() {
         <div>
           <h4 className="font-semibold text-sm">Contacto</h4>
           <ul className="mt-4 text-sm text-muted-foreground space-y-2">
-            <li>Tel: 917 269 296</li>
-            <li>WhatsApp: 633 489 755</li>
-            <li>P.º del Marqués de Zafra, 34</li>
-            <li>28028 Madrid</li>
+            <li>Tel: 900 000 000</li>
+            <li>WhatsApp: 600 000 000</li>
+            <li>Ubicacion</li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Clínica Veterinaria Zafra. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Clínica Veterinaria (demo)\n. Todos los derechos reservados.</p>
           <div className="flex gap-5">
             <a href="#" className="hover:text-primary">Aviso legal</a>
             <a href="#" className="hover:text-primary">Privacidad</a>
