@@ -1,38 +1,50 @@
+## Diagnóstico
 
-## Despliegue CI/CD a Cloudflare Workers con GitHub Actions
+El step "Verify build output" falla porque mis suposiciones previas sobre la salida del build eran incorrectas. Lo que realmente genera `bun run build` en este proyecto es:
 
-### Pasos previos (los hace el usuario, no Lovable)
-
-1. **Conectar el proyecto a GitHub** desde Lovable: menú `+` → GitHub → Create Repository.
-2. **Crear un API Token de Cloudflare** en https://dash.cloudflare.com/profile/api-tokens usando la plantilla *Edit Cloudflare Workers*. Copiar también el **Account ID** desde el dashboard.
-3. En el repo de GitHub, ir a **Settings → Secrets and variables → Actions** y añadir:
-   - `CLOUDFLARE_API_TOKEN`
-   - `CLOUDFLARE_ACCOUNT_ID`
-
-### Cambios en el proyecto (los hago yo al pasar a build mode)
-
-1. **Crear `.github/workflows/deploy.yml`** con un workflow que:
-   - Se ejecute en cada push a `main` (y manualmente con `workflow_dispatch`).
-   - Instale Bun, ejecute `bun install` y `bun run build`.
-   - Use `cloudflare/wrangler-action@v3` para desplegar desde `dist/server/` (que ya contiene `index.js` y `wrangler.json` generados por el build).
-   - Pase `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID` desde los secrets.
-
-2. **Verificar `wrangler.jsonc`**: el `name` actual es `tanstack-start-app`. Confirmar si quieres ese nombre como subdominio en Workers (`tanstack-start-app.<tu-cuenta>.workers.dev`) o cambiarlo (p. ej. `veterinaria-demo`).
-
-### Detalles técnicos
-
-- El build de Vite ya genera `dist/server/index.js` y `dist/server/wrangler.json` con los assets correctamente configurados (verificado en la conversación anterior), así que el workflow solo necesita ejecutar `wrangler deploy` apuntando a ese directorio.
-- Estructura del workflow:
-
-```text
-.github/workflows/deploy.yml
-  ├─ checkout
-  ├─ setup-bun
-  ├─ bun install --frozen-lockfile
-  ├─ bun run build
-  └─ wrangler-action (workingDirectory: dist/server)
+```
+dist/server/
+├── assets/
+└── server.js          ← (no "index.js")
 ```
 
-### Pregunta antes de implementar
+Y **no** se genera ningún `wrangler.json` en `dist/server/`. La configuración real de Cloudflare está en `wrangler.jsonc` en la **raíz del repo**, que apunta a `src/server.ts` como entry. El plugin `@cloudflare/vite-plugin` se encarga del bundling durante el build, y `wrangler deploy` debe ejecutarse desde la raíz para que encuentre `wrangler.jsonc`.
 
-¿Quieres mantener el nombre `tanstack-start-app` en Cloudflare Workers o prefieres renombrarlo (por ejemplo `veterinaria-demo`)?
+Por eso los chequeos `test -f dist/server/index.js` y `test -f dist/server/wrangler.json` devuelven exit code 1.
+
+## Cambios
+
+### `.github/workflows/deploy.yml`
+
+1. **Eliminar el step "Verify build output"** (los `test -f` con nombres incorrectos son la causa directa del fallo).
+2. **Quitar `workingDirectory: dist/server`** del step de deploy. Wrangler debe ejecutarse desde la raíz para leer `wrangler.jsonc`.
+3. Mantener `command: deploy` y `wranglerVersion: "4"`.
+
+Workflow resultante (sección relevante):
+
+```yaml
+      - name: Build
+        run: bun run build
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4"
+          command: deploy
+```
+
+## Por qué esto funciona
+
+- `wrangler deploy` ejecutado en la raíz detecta automáticamente `wrangler.jsonc`.
+- El campo `main: "src/server.ts"` + el plugin de Cloudflare en Vite producen el bundle correcto en `dist/` durante `bun run build`, y wrangler lo empaqueta y sube en el deploy.
+- No hace falta `--config` ni `workingDirectory`.
+
+## Requisitos previos (sin cambios)
+
+En GitHub → Settings → Secrets and variables → Actions deben existir:
+- `CLOUDFLARE_API_TOKEN` (con permisos *Workers Scripts:Edit* + *Account:Read*)
+- `CLOUDFLARE_ACCOUNT_ID`
+
+Tras aplicar el plan, hago push y el siguiente run de Actions debería completar el deploy.
