@@ -57,7 +57,7 @@ export function Footer() {
 
       <div className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Clínica Veterinaria (demo). Todos los derechos reservados a VVV</p>
+          <p>© {new Date().getFullYear()} Clínica Veterinaria (demo). Todos los derechos reservados | Diseñador y desarrolado por VVV</p>
           <div className="flex gap-5">
             <a href="#" className="hover:text-primary">Aviso legal</a>
             <a href="#" className="hover:text-primary">Privacidad</a>
